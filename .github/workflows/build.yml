@@ -3,6 +3,8 @@ name: build and publish a Docker image
 on:
   push:
   workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
 
 env:
   REGISTRY: ghcr.io
@@ -21,7 +23,7 @@ jobs:
 
       - name: Check if the base image changed
         id: check
-        uses: twiddler/is-my-docker-parent-image-out-of-date@v1
+        uses: twiddler/is-my-docker-parent-image-out-of-date@main
         with:
           parent-image: caddy:2-builder-alpine
           my-image: ghcr.io/cantorgymnasium/caddy:main
