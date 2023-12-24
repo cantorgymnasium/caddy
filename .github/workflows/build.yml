@@ -23,10 +23,10 @@ jobs:
 
       - name: Check if the base image changed
         id: check
-        uses: cantorgymnasium/is-my-docker-parent-image-out-of-date@main
+        uses: twiddler/is-my-docker-parent-image-out-of-date@main
         with:
           my-image: ghcr.io/cantorgymnasium/caddy:main
-          parent-image: docker.io/library/caddy:2-builder-alpine
+          parent-image: docker.io/library/caddy:2-alpine
 
       - name: Log in to the Container registry
         uses: docker/login-action@v3
