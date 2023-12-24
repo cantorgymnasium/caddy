@@ -23,7 +23,7 @@ jobs:
 
       - name: Check if the base image changed
         id: check
-        uses: twiddler/is-my-docker-parent-image-out-of-date@main
+        uses: cantorgymnasium/is-my-docker-parent-image-out-of-date@main
         with:
           my-image: ghcr.io/cantorgymnasium/caddy:nightly
           parent-image: docker.io/library/caddy:2-alpine
