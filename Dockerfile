@@ -1,6 +1,6 @@
 FROM caddy:2-builder-alpine AS builder
 
-RUN apk add --no-cache brotli
+RUN apk add --no-cache brotli-dev gcc musl-dev
 
 RUN CGO_ENABLED=1 \
     xcaddy build \
@@ -9,6 +9,6 @@ RUN CGO_ENABLED=1 \
 
 FROM caddy:2-alpine
 
-RUN apk add --no-cache brotli
+RUN apk add --no-cache brotli brotli-dev
 
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
